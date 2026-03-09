@@ -56,6 +56,10 @@ import { addVersionMilestoneTool } from './addVersionMilestone.js';
 import { updateVersionMilestoneTool } from './updateVersionMilestone.js';
 import { deleteVersionTool } from './deleteVersion.js';
 import { addDocumentTool } from './addDocument.js';
+import { getIssueAttachmentsTool } from './getIssueAttachments.js';
+import { downloadIssueAttachmentTool } from './downloadIssueAttachment.js';
+import { deleteIssueAttachmentTool } from './deleteIssueAttachment.js';
+import { postSpaceAttachmentTool } from './postSpaceAttachment.js';
 
 export const allTools = (
   backlog: Backlog,
@@ -73,6 +77,7 @@ export const allTools = (
           getSpaceActivitiesTool(backlog, helper),
           getUsersTool(backlog, helper),
           getMyselfTool(backlog, helper),
+          postSpaceAttachmentTool(backlog, helper),
         ],
       },
       {
@@ -116,6 +121,9 @@ export const allTools = (
           addVersionMilestoneTool(backlog, helper),
           updateVersionMilestoneTool(backlog, helper),
           deleteVersionTool(backlog, helper),
+          getIssueAttachmentsTool(backlog, helper),
+          downloadIssueAttachmentTool(backlog, helper),
+          deleteIssueAttachmentTool(backlog, helper),
         ],
       },
       {
