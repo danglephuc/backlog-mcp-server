@@ -206,6 +206,7 @@ Tools for managing Backlog space settings and general information.
 - `get_space`: Returns information about the Backlog space.
 - `get_users`: Returns list of users in the Backlog space.
 - `get_myself`: Returns information about the authenticated user.
+- `post_space_attachment`: Uploads an attachment file for issue or wiki. Returns the attachment id for use when creating or updating issues.
 
 ### Toolset: `project`
 
@@ -244,6 +245,9 @@ Tools for managing issues, their comments, and related items like priorities, ca
 - `add_version_milestone`: Creates a new version milestone for a project.
 - `update_version_milestone`: Updates an existing version milestone.
 - `delete_version_milestone`: Deletes a version milestone.
+- `get_issue_attachments`: Returns list of attachments for an issue.
+- `download_issue_attachment`: Downloads an attachment file from an issue. Supports saving to disk or returning base64 content.
+- `delete_issue_attachment`: Deletes an attachment of an issue.
 
 ### Toolset: `wiki`
 

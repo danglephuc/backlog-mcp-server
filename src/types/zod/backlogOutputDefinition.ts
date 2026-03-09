@@ -478,6 +478,19 @@ export const DocumentAttachmentSchema = z.object({
   url: z.string(),
 });
 
+export const SpaceFileInfoSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  size: z.number(),
+});
+
+export const DownloadedAttachmentSchema = z.object({
+  filename: z.string(),
+  size: z.number().optional(),
+  base64Content: z.string().optional(),
+  savedTo: z.string().optional(),
+});
+
 export const DocumentTagSchema = z.object({
   id: z.number(),
   name: z.string(),

@@ -27,7 +27,8 @@ export default [
     rules: {
       ...plugin.configs.recommended.rules,
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      'no-console': ['warn', { allow: ['warn', 'error'] }]
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-undef': 'off', // TypeScript handles this; avoids false positives on globals like FormData, NodeJS, etc.
     },
   },
   {

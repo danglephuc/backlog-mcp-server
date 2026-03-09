@@ -84,10 +84,10 @@
 - ❌ Retrieving watches (`get_watching`)
 
 ### Attachment-related
-- ❌ Uploading attachments (`post_attachment_file`)
-- ❌ Retrieving issue attachment lists (`get_list_of_issue_attachments`)
-- ❌ Retrieving issue attachments (`get_issue_attachment`)
-- ❌ Deleting issue attachments (`delete_issue_attachment`)
+- ✅ Uploading attachments (`post_space_attachment`)
+- ✅ Retrieving issue attachment lists (`get_issue_attachments`)
+- ✅ Downloading issue attachments (`download_issue_attachment`)
+- ✅ Deleting issue attachments (`delete_issue_attachment`)
 - ❌ Retrieving pull request attachment lists (`get_list_of_pull_request_attachment`)
 - ❌ Downloading pull request attachments (`download_pull_request_attachment`)
 - ❌ Deleting pull request attachments (`delete_pull_request_attachments`)
