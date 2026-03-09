@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { Buffer } from 'node:buffer';
 import { Backlog } from 'backlog-js';
 import * as fs from 'node:fs';
+import * as path from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { Readable, Writable } from 'node:stream';
 import { buildToolSchema, ToolDefinition } from '../types/tool.js';
@@ -113,7 +114,7 @@ export const downloadIssueAttachmentTool = (
         throw result.error;
       }
 
-      if (outputPath && !outputPath.startsWith('/')) {
+      if (outputPath && !path.isAbsolute(outputPath)) {
         throw new Error(
           t(
             'TOOL_DOWNLOAD_ISSUE_ATTACHMENT_OUTPUT_PATH_ABSOLUTE',

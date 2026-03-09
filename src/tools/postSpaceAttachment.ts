@@ -43,7 +43,9 @@ export const postSpaceAttachmentTool = (
         );
       }
 
-      if (!fs.existsSync(inputFilePath)) {
+      try {
+        await fs.promises.access(inputFilePath);
+      } catch {
         throw new Error(
           t(
             'TOOL_POST_SPACE_ATTACHMENT_FILE_NOT_FOUND',
@@ -53,7 +55,7 @@ export const postSpaceAttachmentTool = (
       }
 
       const fileName = path.basename(inputFilePath);
-      const fileBuffer = fs.readFileSync(inputFilePath);
+      const fileBuffer = await fs.promises.readFile(inputFilePath);
       const blob = new Blob([fileBuffer]);
 
       const form = new FormData();

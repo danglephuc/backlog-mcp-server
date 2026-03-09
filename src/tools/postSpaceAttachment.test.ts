@@ -6,8 +6,10 @@ import { createTranslationHelper } from '../createTranslationHelper.js';
 import * as fs from 'node:fs';
 
 vi.mock('node:fs', () => ({
-  existsSync: vi.fn(),
-  readFileSync: vi.fn(),
+  promises: {
+    access: vi.fn(),
+    readFile: vi.fn(),
+  },
 }));
 
 describe('postSpaceAttachmentTool', () => {
@@ -30,9 +32,9 @@ describe('postSpaceAttachmentTool', () => {
         .mockResolvedValue(mockResponse),
     };
 
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockReturnValue(
-      Buffer.from('file content')
+    vi.mocked(fs.promises.access).mockResolvedValue(undefined);
+    vi.mocked(fs.promises.readFile).mockResolvedValue(
+      Buffer.from('file content') as any
     );
 
     const tool = postSpaceAttachmentTool(
@@ -45,8 +47,8 @@ describe('postSpaceAttachmentTool', () => {
     });
 
     expect(result).toEqual(mockResponse);
-    expect(fs.existsSync).toHaveBeenCalledWith('/tmp/test.txt');
-    expect(fs.readFileSync).toHaveBeenCalledWith('/tmp/test.txt');
+    expect(fs.promises.access).toHaveBeenCalledWith('/tmp/test.txt');
+    expect(fs.promises.readFile).toHaveBeenCalledWith('/tmp/test.txt');
     expect(mockBacklog.postSpaceAttachment).toHaveBeenCalledWith(
       expect.any(FormData)
     );
@@ -68,7 +70,7 @@ describe('postSpaceAttachmentTool', () => {
   });
 
   it('throws an error if file does not exist', async () => {
-    vi.mocked(fs.existsSync).mockReturnValue(false);
+    vi.mocked(fs.promises.access).mockRejectedValue(new Error('ENOENT'));
 
     const mockBacklog: Partial<Backlog> = {
       postSpaceAttachment: vi.fn<() => Promise<any>>(),
