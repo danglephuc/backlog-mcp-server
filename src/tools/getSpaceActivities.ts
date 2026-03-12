@@ -2,14 +2,14 @@ import { z } from 'zod';
 import { Backlog } from 'backlog-js';
 import { buildToolSchema, ToolDefinition } from '../types/tool.js';
 import { TranslationHelper } from '../createTranslationHelper.js';
-import {
-  ActivitySchema,
-  ActivityTypeSchema,
-} from '../types/zod/backlogOutputDefinition.js';
+import { ActivitySchema } from '../types/zod/backlogOutputDefinition.js';
 
 const getSpaceActivitiesSchema = buildToolSchema((t) => ({
   activityTypeId: z
-    .array(ActivityTypeSchema)
+    // NOTE: Antigravity's function-calling schema validation rejects `enum` for non-string items.
+    // `z.nativeEnum({ ...numeric })` becomes a numeric enum in JSON schema, so we accept numbers
+    // and describe the allowed values in text instead.
+    .array(z.number().int())
     .optional()
     .describe(
       t('TOOL_GET_SPACE_ACTIVITIES_ACTIVITY_TYPE_ID', 'Activity type IDs')
