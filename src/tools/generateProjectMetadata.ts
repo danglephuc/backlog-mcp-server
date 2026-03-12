@@ -32,7 +32,7 @@ const getProjectMetadataSchema = buildToolSchema((t) => ({
     .describe(
       t(
         'TOOL_GET_PROJECT_METADATA_OUTPUT_PATH',
-        'Absolute file path to save the metadata JSON to disk. When provided, the metadata is written to this file. Recommended path: backlog/.backlog-metadata.json in the project directory.'
+        'Absolute file path to save the metadata JSON to disk. When provided, the metadata is written to this file. Recommended: absolute path to <project-root>/backlog/.backlog-metadata.json (for example: /path/to/project/backlog/.backlog-metadata.json).'
       )
     ),
 }));
@@ -87,7 +87,7 @@ export const getProjectMetadataTool = (
         Object.fromEntries(items.map((i) => [i.name, i.id]));
 
       const metadata = {
-        last_updated: new Date().toISOString(),
+        lastUpdated: new Date().toISOString(),
         projectId: project.id,
         projectKey: project.projectKey,
         issueTypes: toMap(issueTypes),
@@ -114,7 +114,7 @@ export const getProjectMetadataTool = (
           ])
         ),
         priorities: toMap(priorities),
-        users: toMap(users),
+        users: Object.fromEntries(users.map((u: { id: number; userId: string }) => [u.userId, u.id])),
       };
 
       if (outputPath) {

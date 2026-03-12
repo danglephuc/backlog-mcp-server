@@ -564,7 +564,7 @@ const CustomFieldMetadataSchema = z.object({
 });
 
 export const ProjectMetadataSchema = z.object({
-  last_updated: z.string(),
+  lastUpdated: z.string(),
   projectId: z.number(),
   projectKey: z.string(),
   issueTypes: z.record(z.string(), z.number()),

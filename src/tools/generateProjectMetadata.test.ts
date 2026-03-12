@@ -133,7 +133,7 @@ describe('getProjectMetadataTool', () => {
         throw new Error('Unexpected array result');
       }
 
-      expect(result.last_updated).toBeDefined();
+      expect(result.lastUpdated).toBeDefined();
       expect(result.projectId).toBe(100);
       expect(result.projectKey).toBe('TEST');
       expect(result.issueTypes).toEqual({ Bug: 10, Task: 11 });
@@ -154,7 +154,7 @@ describe('getProjectMetadataTool', () => {
         },
       });
       expect(result.priorities).toEqual({ High: 2, Normal: 3, Low: 4 });
-      expect(result.users).toEqual({ 'User One': 1, 'User Two': 2 });
+      expect(result.users).toEqual({ user1: 1, user2: 2 });
       expect(result.savedTo).toBeUndefined();
     });
 
@@ -216,7 +216,7 @@ describe('getProjectMetadataTool', () => {
       });
       expect(fs.writeFile).toHaveBeenCalledWith(
         '/tmp/backlog/.backlog-metadata.json',
-        expect.stringContaining('"last_updated"')
+        expect.stringContaining('"lastUpdated"')
       );
     });
   });
