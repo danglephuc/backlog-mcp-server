@@ -128,7 +128,9 @@ export const downloadIssueAttachmentTool = (
         attachmentId
       );
 
-      const filename = ('filename' in fileData ? fileData.filename : '') as string;
+      const filename = (
+        'filename' in fileData ? fileData.filename : ''
+      ) as string;
       const body = fileData.body as
         | ReadableStream<Uint8Array>
         | NodeJS.ReadableStream;

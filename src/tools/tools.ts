@@ -59,6 +59,7 @@ import { addDocumentTool } from './addDocument.js';
 import { getIssueAttachmentsTool } from './getIssueAttachments.js';
 import { downloadIssueAttachmentTool } from './downloadIssueAttachment.js';
 import { deleteIssueAttachmentTool } from './deleteIssueAttachment.js';
+import { getProjectMetadataTool } from './generateProjectMetadata.js';
 import { postSpaceAttachmentTool } from './postSpaceAttachment.js';
 
 export const allTools = (
@@ -91,6 +92,7 @@ export const allTools = (
           getProjectTool(backlog, helper),
           updateProjectTool(backlog, helper),
           deleteProjectTool(backlog, helper),
+          getProjectMetadataTool(backlog, helper),
         ],
       },
       {

@@ -554,3 +554,23 @@ export const DocumentTreeFullSchema: z.ZodRawShape = {
 };
 
 export const DocumentTreeFullSchemaZ = z.object(DocumentTreeFullSchema);
+
+const CustomFieldMetadataSchema = z.object({
+  id: z.number(),
+  typeId: CustomFieldTypeSchema,
+  required: z.boolean(),
+  applicableIssueTypes: z.array(z.number()),
+  items: z.record(z.string(), z.number()).optional(),
+});
+
+export const ProjectMetadataSchema = z.object({
+  lastUpdated: z.string(),
+  projectId: z.number(),
+  projectKey: z.string(),
+  issueTypes: z.record(z.string(), z.number()),
+  categories: z.record(z.string(), z.number()),
+  customFields: z.record(z.string(), CustomFieldMetadataSchema),
+  priorities: z.record(z.string(), z.number()),
+  users: z.record(z.string(), z.number()),
+  savedTo: z.string().optional(),
+});

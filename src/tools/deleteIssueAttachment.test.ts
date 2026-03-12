@@ -51,15 +51,10 @@ describe('deleteIssueAttachmentTool', () => {
       attachmentId: 8,
     });
 
-    expect(mockBacklog.deleteIssueAttachment).toHaveBeenCalledWith(
-      12345,
-      '8'
-    );
+    expect(mockBacklog.deleteIssueAttachment).toHaveBeenCalledWith(12345, '8');
   });
 
   it('throws an error if neither issueId nor issueKey is provided', async () => {
-    await expect(
-      tool.handler({ attachmentId: 8 })
-    ).rejects.toThrow(Error);
+    await expect(tool.handler({ attachmentId: 8 })).rejects.toThrow(Error);
   });
 });

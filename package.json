@@ -18,7 +18,8 @@
     "format": "prettier --check \"**/*.{ts,tsx}\"",
     "format:fix": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "typecheck:all": "tsc --noEmit --project tsconfig.test.json"
+    "typecheck:all": "tsc --noEmit --project tsconfig.test.json",
+    "inspect": "npx @modelcontextprotocol/inspector tsx src/index.ts"
   },
   "files": [
     "build"
