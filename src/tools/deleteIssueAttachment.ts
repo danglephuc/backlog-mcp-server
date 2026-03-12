@@ -55,10 +55,7 @@ export const deleteIssueAttachmentTool = (
         throw result.error;
       }
       // backlog-js types attachmentId as string, but the API accepts number
-      return backlog.deleteIssueAttachment(
-        result.value,
-        String(attachmentId)
-      );
+      return backlog.deleteIssueAttachment(result.value, String(attachmentId));
     },
   };
 };

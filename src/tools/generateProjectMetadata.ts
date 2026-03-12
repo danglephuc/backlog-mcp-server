@@ -114,7 +114,9 @@ export const getProjectMetadataTool = (
           ])
         ),
         priorities: toMap(priorities),
-        users: Object.fromEntries(users.map((u: { id: number; userId: string }) => [u.userId, u.id])),
+        users: Object.fromEntries(
+          users.map((u: { id: number; userId: string }) => [u.userId, u.id])
+        ),
       };
 
       if (outputPath) {

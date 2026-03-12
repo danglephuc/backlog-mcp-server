@@ -24,13 +24,11 @@ describe('downloadIssueAttachmentTool', () => {
       stream.end(Buffer.from(testContent));
 
       const mockBacklog: Partial<Backlog> = {
-        getIssueAttachment: vi
-          .fn<() => Promise<any>>()
-          .mockResolvedValue({
-            body: stream,
-            url: 'https://example.com/attachment',
-            filename: 'test.txt',
-          }),
+        getIssueAttachment: vi.fn<() => Promise<any>>().mockResolvedValue({
+          body: stream,
+          url: 'https://example.com/attachment',
+          filename: 'test.txt',
+        }),
       };
 
       const tool = downloadIssueAttachmentTool(
@@ -59,18 +57,14 @@ describe('downloadIssueAttachmentTool', () => {
       stream.end(Buffer.from(testContent));
 
       const mockWriteStream = new PassThrough();
-      vi.mocked(fs.createWriteStream).mockReturnValue(
-        mockWriteStream as any
-      );
+      vi.mocked(fs.createWriteStream).mockReturnValue(mockWriteStream as any);
 
       const mockBacklog: Partial<Backlog> = {
-        getIssueAttachment: vi
-          .fn<() => Promise<any>>()
-          .mockResolvedValue({
-            body: stream,
-            url: 'https://example.com/attachment',
-            filename: 'report.pdf',
-          }),
+        getIssueAttachment: vi.fn<() => Promise<any>>().mockResolvedValue({
+          body: stream,
+          url: 'https://example.com/attachment',
+          filename: 'report.pdf',
+        }),
       };
 
       const tool = downloadIssueAttachmentTool(
@@ -129,8 +123,6 @@ describe('downloadIssueAttachmentTool', () => {
       mockTranslationHelper
     );
 
-    await expect(
-      tool.handler({ attachmentId: 8 })
-    ).rejects.toThrow(Error);
+    await expect(tool.handler({ attachmentId: 8 })).rejects.toThrow(Error);
   });
 });
