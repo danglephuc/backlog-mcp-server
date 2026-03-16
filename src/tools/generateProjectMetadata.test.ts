@@ -154,7 +154,7 @@ describe('getProjectMetadataTool', () => {
         },
       });
       expect(result.priorities).toEqual({ High: 2, Normal: 3, Low: 4 });
-      expect(result.users).toEqual({ user1: 1, user2: 2 });
+      expect(result.users).toEqual({ 'User One': 1, 'User Two': 2 });
       expect(result.savedTo).toBeUndefined();
     });
 
