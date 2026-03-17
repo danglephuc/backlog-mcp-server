@@ -59,7 +59,7 @@ Available toolsets:
   - wiki:        Tools for managing wiki pages
   - git:         Tools for managing Git repositories and pull requests
   - notifications: Tools for managing user notifications`,
-    default: env.get('ENABLE_TOOLSETS').default('all').asArray(','),
+    default: env.get('ENABLE_TOOLSETS').default('pm').asArray(','),
   })
   .option('dynamic-toolsets', {
     type: 'boolean',

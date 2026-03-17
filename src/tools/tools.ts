@@ -179,6 +179,123 @@ export const allTools = (
           markNotificationAsReadTool(backlog, helper),
         ],
       },
+      {
+        name: 'pm',
+        description:
+          'Role toolset for PMs: planning, tracking, and communication.',
+        enabled: false,
+        tools: [
+          // Space / overview
+          postSpaceAttachmentTool(backlog, helper),
+          // Project setup
+          getProjectListTool(backlog, helper),
+          getProjectTool(backlog, helper),
+          getProjectMetadataTool(backlog, helper),
+          // Issues & planning
+          getIssueTool(backlog, helper),
+          getIssuesTool(backlog, helper),
+          countIssuesTool(backlog, helper),
+          addIssueTool(backlog, helper),
+          updateIssueTool(backlog, helper),
+          // deleteIssueTool(backlog, helper),
+          getIssueCommentsTool(backlog, helper),
+          addIssueCommentTool(backlog, helper),
+          getPrioritiesTool(backlog, helper),
+          getCategoriesTool(backlog, helper),
+          getCustomFieldsTool(backlog, helper),
+          getIssueTypesTool(backlog, helper),
+          getResolutionsTool(backlog, helper),
+          getVersionMilestoneListTool(backlog, helper),
+          getIssueAttachmentsTool(backlog, helper),
+          downloadIssueAttachmentTool(backlog, helper),
+          deleteIssueAttachmentTool(backlog, helper),
+          // Wiki / docs
+          // getWikiPagesTool(backlog, helper),
+          // getWikisCountTool(backlog, helper),
+          // getWikiTool(backlog, helper),
+          // addWikiTool(backlog, helper),
+          // updateWikiTool(backlog, helper),
+          // Notifications
+        ],
+      },
+      {
+        name: 'qc',
+        description:
+          'Role toolset for QC/QA: verification, regression, and tracking.',
+        enabled: false,
+        tools: [
+          // Space / overview
+          postSpaceAttachmentTool(backlog, helper),
+          // Project setup
+          getProjectListTool(backlog, helper),
+          getProjectTool(backlog, helper),
+          getProjectMetadataTool(backlog, helper),
+          // Issues & planning
+          getIssueTool(backlog, helper),
+          getIssuesTool(backlog, helper),
+          countIssuesTool(backlog, helper),
+          addIssueTool(backlog, helper),
+          updateIssueTool(backlog, helper),
+          // deleteIssueTool(backlog, helper),
+          getIssueCommentsTool(backlog, helper),
+          addIssueCommentTool(backlog, helper),
+          getPrioritiesTool(backlog, helper),
+          getCategoriesTool(backlog, helper),
+          getCustomFieldsTool(backlog, helper),
+          getIssueTypesTool(backlog, helper),
+          getResolutionsTool(backlog, helper),
+          getVersionMilestoneListTool(backlog, helper),
+          getIssueAttachmentsTool(backlog, helper),
+          downloadIssueAttachmentTool(backlog, helper),
+          deleteIssueAttachmentTool(backlog, helper),
+          // Wiki / docs
+          // getWikiPagesTool(backlog, helper),
+          // getWikisCountTool(backlog, helper),
+          // getWikiTool(backlog, helper),
+          // addWikiTool(backlog, helper),
+          // updateWikiTool(backlog, helper),
+          // Notifications
+        ],
+      },
+      {
+        name: 'dev',
+        description:
+          'Role toolset for developers: implementation, code review, and documentation.',
+        enabled: false,
+        tools: [
+          // Space / overview
+          postSpaceAttachmentTool(backlog, helper),
+          // Project setup
+          getProjectListTool(backlog, helper),
+          getProjectTool(backlog, helper),
+          getProjectMetadataTool(backlog, helper),
+          // Issues & planning
+          getIssueTool(backlog, helper),
+          getIssuesTool(backlog, helper),
+          countIssuesTool(backlog, helper),
+          addIssueTool(backlog, helper),
+          updateIssueTool(backlog, helper),
+          // deleteIssueTool(backlog, helper),
+          getIssueCommentsTool(backlog, helper),
+          addIssueCommentTool(backlog, helper),
+          getPrioritiesTool(backlog, helper),
+          getCategoriesTool(backlog, helper),
+          getCustomFieldsTool(backlog, helper),
+          getIssueTypesTool(backlog, helper),
+          getResolutionsTool(backlog, helper),
+          getVersionMilestoneListTool(backlog, helper),
+          getIssueAttachmentsTool(backlog, helper),
+          downloadIssueAttachmentTool(backlog, helper),
+          deleteIssueAttachmentTool(backlog, helper),
+          // Wiki / docs
+          // getWikiPagesTool(backlog, helper),
+          // getWikisCountTool(backlog, helper),
+          // getWikiTool(backlog, helper),
+          // addWikiTool(backlog, helper),
+          // updateWikiTool(backlog, helper),
+          // Notifications
+        ],
+      },
     ],
   };
 };
